@@ -1,0 +1,17 @@
+node_modules/
+
+dist/
+build/
+out/
+
+*.env
+
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.DS_Store
