@@ -32,10 +32,9 @@ the sql db is also pretty straightforward, with the exception of the query for `
 3. an "interactable" table to me meant sorting, because this would give users more information that would otherwise be difficult to get from what was displayed on the screen alone. also it made the most sense to me for the given time frame.
 
 # what is missing
-re: interactable table
-a cool feature that i thought about as i developed wouldve been editing the fund ticker, weight and close value, and seeing the changes propogate to the bar chart and graph. the changes would need to be cached on the frontend and sent to a PATCH endpoint and i would have to find a different way to trigger re-renders for the other components, so i decided against implementing it.
+1. re:interactive table; a cool feature that i thought about as i developed wouldve been editing the fund ticker, weight and close value, and seeing the changes propogate to the bar chart and graph. the changes would need to be cached on the frontend and sent to a PATCH endpoint and i would have to find a different way to trigger re-renders for the other components, so i decided against implementing it.
 
-also, i didn't finish making the bar chart, but i implemented the backend calls necessary for producing the underlying data. i displayed the underlying data instead.
+2. i didn't finish making the bar chart, but i implemented the backend calls necessary for producing the underlying data. i displayed the underlying data instead.
 
 ### on the frontend:
 my next steps would have been to implement proper error handling for api errors. this would be a wrapper for the fetch calls in `services.tsx`.
@@ -50,6 +49,7 @@ i also wanted to design a lazy-loaded cache for storing the etf price over time.
 the backend currently loads `Prices.csv` from scratch on startup everytime. could add checking to see if the file has changed and potentially skip this step.
 
 also there were some unused endpoints like for getting ETF data or deleting an ETF.
+
 # ai usage
 in this project, i used claude to help me choose a library for rendering charts and generating the component configurations for said chart. 
 
