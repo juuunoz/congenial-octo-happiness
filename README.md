@@ -1,8 +1,10 @@
 ### how to run
-needs two processes.
 
-in the  `/` (root folder): `npm run start`
-in `/backend` (db folder): `node server.js`
+step 1: in the root folder, run `npm install`
+
+step 2: in one process the  `/` (root folder): `npm run start`
+
+step 3: in a separate process `/backend` (db folder): `node server.js`
 
 ### design choices
 ---
