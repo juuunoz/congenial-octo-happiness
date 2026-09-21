@@ -2,7 +2,9 @@
 
 step 1: in the root folder, run `npm install`
 
-step 2: in one process the  `/` (root folder): `npm run start`
+step 2: in  `/backend`, run `npm install`
+
+step 3: in one process the  `/` (root folder): `npm run start`
 
 step 3: in a separate process `/backend` (db folder): `node server.js`
 
