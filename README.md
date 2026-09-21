@@ -40,14 +40,14 @@ a cool feature that i thought about as i developed wouldve been editing the fund
 
 also, i didn't finish making the bar chart, but i implemented the backend calls necessary for producing the underlying data. i displayed the underlying data instead.
 
-**on the frontend :**
+**on the frontend :** \
 my next steps would have been to implement proper error handling for api errors. this would be a wrapper for the fetch calls in `services.tsx`.
 
 also, for the time series graph, i wanted to load the data-points lazily as the user zooms out of the graph. the endpoint i use to load the data has functional `from` and `to` optional query parameters for this purpose. The ETF table could also be paginated.
 
 lastly, i think being able to compare data for multiple ETFs on the screen at once or even on the same graph would've been useful. i organized my code around this feature but didn't implement it. 
 
-**on the backend:**
+**on the backend:** \
 i also wanted to design a lazy-loaded cache for storing the etf price over time. currently the backend route for etf price over time takes optional `from` and `to` query parameters in the backend, and only calculates the values for that time slice. given more time, i would try to save the values in a `fund_prices` table after every calculation, and check the cache before starting an otherwise pretty costly calculation. in a production context with multiple users, this is also a value that would be queried a lot, which makes it a good candidate for cacheing
 
 the backend currently loads `Prices.csv` from scratch on startup everytime. could add checking to see if the file has changed and potentially skip this step.
