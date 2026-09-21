@@ -24,7 +24,7 @@ function ETFTableDisplay({ etfId }: { etfId: number}) {
     );
 
     useEffect(() => {
-        if (etfId != -1) 
+        if (etfId !== -1) 
             ETFGetRecentClose(etfId)
                 .then((response) => {
                     setETFValues(response.entries)
