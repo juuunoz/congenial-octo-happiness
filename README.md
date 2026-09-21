@@ -16,7 +16,7 @@ step 3: in a separate process `/backend` (db folder): `node server.js`
 
 i'm using a SQL db because the data is very structured and interrelated (etfs and prices).  i also needed to run complex and optimized calculations over many, many different entires (i.e for fund price over time) which was best done with SQL queries as well.
 
-**on the codebase:**
+**on the codebase:** \
 each item on the rubric was created in my project it's own component and named consistently (with `ETF` at the front). the logic in each component is enclosed, and they can all render different ETF data at the same time. developing this way helps with keeping the logic readable and organized. it also makes the components reusable which is good for scalability.
 
 I abstracted api calls to `services.tsx` because this way i can later add parsers, error handling, loading states en masse to all my api calls easily. it also makes them reusable. i wrote all the calls in this file use the `fetch` api instead of `await` functions here because in some contexts, such as in `useEffect` where the thread can't be blocked, and i want `services.tsx` to be as broadly usable as possible. i can also attach await to a fetch() promise, but not the other way around.
