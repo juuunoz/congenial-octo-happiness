@@ -14,6 +14,7 @@ make sure both port 3000 and 4000 are available
 
 ### on tooling:
 * this app was made with React,  express and SQLite backend
+* i did api testing with Bruno (Postman-like api client)
 * i chose my tech stack prioritizing speed over future scalability.
 * to this end, i chose SQLite specifically for startup simplicity.
 
