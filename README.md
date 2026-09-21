@@ -8,11 +8,13 @@ step 3: in one process the  `/` (root folder): `npm run start`
 
 step 3: in a separate process `/backend` (db folder): `node server.js`
 
+make sure both port 3000 and 4000 are available
+
 # design choices
 
 ### on tooling:
 * this app was made with React,  express and SQLite backend
-* i chose my tech stack prioritizing speed over future scaleability.
+* i chose my tech stack prioritizing speed over future scalability.
 * to this end, i chose SQLite specifically for startup simplicity.
 
 i'm using a SQL db because the data is very structured and interrelated (etfs and prices).  i also needed to run complex and optimized calculations over many, many different entires (i.e for fund price over time) which was best done with SQL queries as well.
