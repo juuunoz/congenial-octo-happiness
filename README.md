@@ -10,13 +10,11 @@ step 3: in a separate process `/backend` (db folder): `node server.js`
 ---
 
 **on tooling:**
-this app was made with React,  express and SQLite backend
-
-i chose my tech stack prioritizing speed over future scaleability.
+* this app was made with React,  express and SQLite backend
+* i chose my tech stack prioritizing speed over future scaleability.
+* to this end, i chose SQLite specifically for startup simplicity.
 
 i'm using a SQL db because the data is very structured and interrelated (etfs and prices).  i also needed to run complex and optimized calculations over many, many different entires (i.e for fund price over time) which was best done with SQL queries as well.
-
-i chose SQLite specifically for startup simplicity.
 
 **on the codebase:**
 each item on the rubric was created in my project it's own component and named consistently (with `ETF` at the front). the logic in each component is enclosed, and they can all render different ETF data at the same time. developing this way helps with keeping the logic readable and organized. it also makes the components reusable which is good for scalability.
@@ -31,11 +29,9 @@ the sql db is also pretty straightforward, with the exception of the query for `
 
 ### assumptions
 ---
-i noticed that in ETF files, some tickers had 0 weights. i rendered them anyways. 
-
-when validating the ETF input files, i assumed that only files with a "name" and "weight" column would be valid.
-
-an "interactable" table to me meant sorting, because this would give users more information that would otherwise be difficult to get from what was displayed on the screen alone. also it made the most sense to me for the given time frame.
+1. i noticed that in ETF files, some tickers had 0 weights. i rendered them anyways. 
+2. when validating the ETF input files, i assumed that only files with a "name" and "weight" column would be valid.
+3. an "interactable" table to me meant sorting, because this would give users more information that would otherwise be difficult to get from what was displayed on the screen alone. also it made the most sense to me for the given time frame.
 
 ### what is missing
 ---
