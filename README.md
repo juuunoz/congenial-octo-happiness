@@ -5,3 +5,7 @@ need reactive rendering because i want to process prices list in chunks, and upd
 design decisions: \
 ignore missing column handling for now \
 display multiple etfs at once -> need to refactor into table component. didnt do \
+\
+rn tes
+unexpected stuff:\
+some weightings for etfs were 0. i kept it anyways \

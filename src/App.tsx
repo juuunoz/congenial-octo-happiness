@@ -128,14 +128,6 @@ function App() {
             onChange={handleETFFileChange}
           />
         </div>
-        <div className="ml-auto mr-auto">
-          <div>insert stock history</div>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={stockHistoryFileChange}
-          />
-        </div>
 
         <div className="mt-5">
           five largest holdings:

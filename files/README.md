@@ -71,9 +71,9 @@ use Python, but use whatever lets you do your best work.
 
 The application should:
 
-1. **Accept an uploaded weights file** (`ETF1.csv` or `ETF2.csv`). [DONE]
+1. **Accept an uploaded weights file** (`ETF1.csv` or `ETF2.csv`). 
 
-2. **Display an interactive table** of the fund's holdings, with three [DONE]
+2. **Display an interactive table** of the fund's holdings, with three 
    columns:
    - Holding name (for example `A`)
    - Weight (for example `0.087`)
