@@ -10,7 +10,7 @@ export default function ETFZoomableGraph({ etfId }: { etfId: number }) {
   const [history, setHistory] = useState<ETFHistoryEntry[]>([]);
 
   useEffect(() => {
-    if (etfId != -1) 
+    if (etfId !== -1) 
         ETFGetPOT(etfId)
             .then((response) => {
                     setHistory(response.entries)
