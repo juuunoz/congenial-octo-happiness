@@ -102,7 +102,7 @@ app.delete('/api/etf/:id', (req, res) => {
 
 })
 
-// Get the most recent set of holdings for a fund TODO: not working
+// Get the most recent set of holdings for a fund
 app.get('/api/etf/:id/recentHoldings', (req, res) => {
     const id = Number(req.params.id)
     if (!Number.isInteger(id)) {

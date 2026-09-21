@@ -14,7 +14,7 @@ function App() {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    const etfName = file.name.replace(/\.[^/.]+$/, ''); // "my-etf.csv" -> "my-etf"
+    const etfName = file.name.replace(/\.[^/.]+$/, '');
     let cols: Record<string, number> | null = null;
 
     // Processes CSV File line-by-line, transforms data into json
