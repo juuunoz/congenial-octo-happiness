@@ -1,6 +1,6 @@
 import { ETFEntry, ETFHistoryEntry } from './types';
 
-const backend = process.env.REACT_APP_BACKEND_ADDR;
+const backend = process.env.REACT_APP_BACKEND_ADDR || `localhost:4000`;
 
 // Get the fund price over time for all the holdings in the ETF idenfified by id
 export function ETFGetPOT(id: number): Promise<{ id: number, name: string, entries: ETFHistoryEntry[] }> {
