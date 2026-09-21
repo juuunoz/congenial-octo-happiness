@@ -40,6 +40,15 @@ const getFundPriceOverTime = db.prepare(`
     HAVING COUNT(*) = (SELECT COUNT(*) FROM fund_weights WHERE fund_id = :fundId)
     ORDER BY p.date;
 `)
+const getFundPriceOverTimeAll = db.prepare(`
+    SELECT p.date, SUM(p.close * w.weight) AS fund_close
+    FROM fund_weights w
+    JOIN prices p ON p.ticker = w.ticker
+    WHERE w.fund_id = :fundId
+    GROUP BY p.date
+    HAVING COUNT(*) = (SELECT COUNT(*) FROM fund_weights WHERE fund_id = :fundId)
+    ORDER BY p.date;
+`)
 
 // Upload a fund
 app.post('/api/etf', (req, res) => {
@@ -123,23 +132,22 @@ app.get('/api/etf/:id/pot', (req, res) => {
     }
 
     // Requires from and to values
-    if (!req.query.from || !req.query.to) {
-        return res.status(400).json({ error: "Missing from and/or to value" });
-    }
-
-    const from = parseIsoDate(req.query.from);
-    const to = parseIsoDate(req.query.to);
+    // TODO: Add behaviour for when optional values not supplied
+    const {from, to} = req.query;
     
     if (!from || !to) {
-        return res.status(400).json({ error: "From and to must be valid YYYY-MM-DD dates" });
+        // If no date range given, return fund price over lifetime
+        res.json({ id: id, name: fund.name, entries: getFundPriceOverTimeAll.all({ fundId: id })});
+    } else {
+        // if date range given, return fund price over date range
+        if (from > to) {
+            return res.status(400).json({ error: "From must not be after to" });
+        }
+
+        // Can calculate lazily, cache unique queried values as the queries come in to save on compute. 
+        res.json({ id: id, name: fund.name, entries: getFundPriceOverTime.all({ fundId: id, from: from, to: to })});
     }
 
-    if (from > to) {
-        return res.status(400).json({ error: "From must not be after to" });
-    }
-
-    // Can calculate lazily, cache unique queried values as the queries come in to save on compute. 
-    res.json({ id: id, name: fund.name, entries: getFundPriceOverTime.all({ fundId: id, from: from, to: to })});
 })
 
 app.listen(PORT, () => {
